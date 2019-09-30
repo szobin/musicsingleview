@@ -1,0 +1,7 @@
+.idea
+.htaccess
+**/__pycache__
+**/*.pyc
+nohup.*
+db.sqlite3
+tmp
