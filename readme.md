@@ -43,3 +43,29 @@ python3 manage.py runserver
 wget http://localhost:8000/api-get-sv/T0101974597
 ```
 
+## Questions
+
+### Describe briefly the matching and reconciling method chosen
+
+Database consist from 3 tables:
+   - Single - contain single records
+   - Contributor - contain contributor records
+   - SingleViewContributors - links one to many from singles to contributors
+   
+Secondary index for single title help to match fast single by title.
+Also secondary index for contributor title works simular
+Extended primary index in links table helps to link singles and contributors fast.
+
+### We constantly receive metadata from our providers, how would you automatize the process?
+
+It better to know receive channel. For example, for email channel would offer a automatic service that read mailbox and each time added new records
+
+### Imagine that the Single View has 20 million musical works, do you think your solution would have a similar response time?
+
+Set of embedded indexes allows to work fine for millions of record.
+We may have delays only after adding a new record.
+
+### If not, what would you do to improve it?
+
+Suggest to use Mongo database. It's a good solution for this kind of data.
+Plus, of course, use redis for cache     
